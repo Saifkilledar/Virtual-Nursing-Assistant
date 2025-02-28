@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Nursing Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .message-container {
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 15px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .assistant {
+            background-color: #f1f0f0;
+            color: #333;
+        }
+
+        .controls {
+            padding: 20px;
+            background-color: white;
+            border-top: 1px solid #ddd;
+        }
+
+        .button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .button.listening {
+            background-color: #dc3545;
+            animation: pulse 1.5s infinite;
+        }
+
+        .status-text {
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Style for bullet points in responses */
+        .message li {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+
+        .message p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Virtual Nursing Assistant</h1>
+        <div class="message-container" id="messageContainer">
+            <div class="welcome-message message assistant">
+                Welcome! I'm your virtual nursing assistant. How can I help you today?
+            </div>
+        </div>
+        <div class="controls">
+            <button id="startButton" class="button">Start Speaking</button>
+            <div id="status" class="status-text">Click to start speaking</div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', path='/js/app.js') }}"></script>
+</body>
+</html>
