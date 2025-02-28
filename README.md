@@ -37,7 +37,7 @@ An AI-powered medical consultation system with voice interaction capabilities.
 1. Clone the repository:
    ```bash
    git clone <repository-url>
-   cd saif
+   cd Virtual-Nursing-Assistant
    ```
 
 2. Create and activate virtual environment:
